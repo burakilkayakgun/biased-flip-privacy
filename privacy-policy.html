@@ -59,6 +59,16 @@
             border-radius: 5px;
             margin-top: 30px;
         }
+        .deletion-steps {
+            background: #fff3f3;
+            border-left: 4px solid #764ba2;
+            padding: 16px 20px;
+            border-radius: 0 5px 5px 0;
+            margin: 10px 0;
+        }
+        .deletion-steps ol {
+            margin: 8px 0;
+        }
         hr {
             border: none;
             border-top: 1px solid #ddd;
@@ -69,14 +79,33 @@
 <body>
     <div class="container">
         <h1>Privacy Policy for Biased Coin Flip</h1>
-        <p class="last-updated"><strong>Last updated:</strong> February 2026</p>
-        
+        <p class="last-updated"><strong>Last updated:</strong> May 2026</p>
+
         <h2>Introduction</h2>
         <p>Biased Coin Flip ("we", "our", or "us") is committed to protecting your privacy. This Privacy Policy explains how we collect, use, and share information when you use our mobile application ("App") available on iOS and Android platforms.</p>
-        
+        <p>Users may play anonymously without an account, or optionally create an account with an email address to sync progress across devices and access leaderboards.</p>
+
         <h2>Information We Collect</h2>
-        <p>Biased Coin Flip is a casual coin-flipping game that does not require user accounts or collect personal information directly. However, we use third-party services that may collect information to provide and improve our services.</p>
-        
+
+        <h3>Firebase Authentication</h3>
+        <p>If you choose to create an account, we collect your <strong>email address</strong> to authenticate you via Firebase Authentication (Google LLC). Anonymous sign-in is also supported and does not require any personal information. We store a unique user ID (UID) linked to your account.</p>
+
+        <h3>Cloud Firestore (Firebase)</h3>
+        <p>When you are signed in (anonymously or with an account), we store the following data on Google Firebase servers linked to your user ID:</p>
+        <ul>
+            <li>Game progress (coin balance, upgrade levels, streak history, statistics)</li>
+            <li>In-app purchase transaction records</li>
+            <li>Leaderboard display name and best score</li>
+            <li>Account metadata (creation date, platform type, last seen timestamp)</li>
+        </ul>
+        <p>This data is used to sync your progress across devices and to power leaderboards.</p>
+
+        <h3>Leaderboard</h3>
+        <p>If you participate in leaderboards, your display name and best score are visible to other users of the app. You can control whether your real username or an anonymous tag (e.g. "Flipper#1234") is shown via <strong>Settings → Privacy → Show Username on Leaderboard</strong>.</p>
+
+        <h3>In-App Purchases</h3>
+        <p>Our app offers optional in-app purchases (virtual currency packs and a remove-ads option). Purchases are processed by Google Play or Apple App Store. We store a record of completed purchases in our database linked to your account to fulfill and verify entitlements.</p>
+
         <h3>Google AdMob</h3>
         <p>Our app uses Google AdMob to display advertisements, including banner ads, interstitial ads, and rewarded video ads. AdMob may collect and use information about your device, including:</p>
         <ul>
@@ -86,73 +115,98 @@
             <li>App usage data and interactions with advertisements</li>
             <li>General location data (not precise location)</li>
         </ul>
-        <p>This information is used to provide personalized or non-personalized ads and to measure ad performance. For more information about how Google uses data, please visit <a href="https://policies.google.com/privacy" target="_blank">Google's Privacy Policy</a>.</p>
-        
+        <p>This information is used to provide personalized or non-personalized ads and to measure ad performance. For more information, please visit <a href="https://policies.google.com/privacy" target="_blank">Google's Privacy Policy</a>.</p>
+
         <h3>App Tracking Transparency (iOS)</h3>
         <p>On iOS devices, we request your permission through Apple's App Tracking Transparency (ATT) framework before accessing your device's advertising identifier (IDFA). You may choose to allow or deny this request. If you deny tracking, you will still see ads, but they may be less relevant to your interests.</p>
-        
+
         <h3>Consent Management (GDPR/CCPA)</h3>
         <p>We use Google's User Messaging Platform (UMP) to manage consent for users in regions where data privacy regulations apply, including the European Economic Area (GDPR) and California (CCPA). When required, a consent dialog will be presented allowing you to choose your preferences for data collection and personalized advertising.</p>
-        
+
         <h3>Local Storage</h3>
-        <p>Our app uses on-device storage (UserDefaults on iOS, SharedPreferences on Android) to save your game progress, including your coin balance, upgrade levels, and game statistics. This data is stored entirely on your device and is never transmitted to our servers or any third party.</p>
-        
+        <p>We use on-device storage (SharedPreferences on Android, UserDefaults on iOS) to save app preferences such as sound settings and haptic feedback preferences.</p>
+
         <h2>How We Use Information</h2>
         <p>We use collected information to:</p>
         <ul>
+            <li>Authenticate users and sync game progress across devices</li>
+            <li>Display leaderboards and track best scores</li>
+            <li>Fulfill and verify in-app purchases</li>
             <li>Display relevant advertisements through Google AdMob</li>
-            <li>Save your game progress locally on your device</li>
             <li>Improve our app and user experience</li>
-            <li>Analyze app performance and fix issues</li>
+            <li>Analyze app performance and fix issues via Firebase Remote Config</li>
             <li>Comply with legal obligations</li>
         </ul>
-        
+
         <h2>Data Sharing</h2>
         <p>We do not sell your personal information. We share information only with:</p>
         <ul>
+            <li><strong>Google Firebase (Authentication &amp; Firestore)</strong> — For user authentication and cloud data storage. Subject to <a href="https://policies.google.com/privacy" target="_blank">Google's Privacy Policy</a>.</li>
             <li><strong>Google AdMob</strong> — For advertising services. AdMob's use of information is governed by their <a href="https://policies.google.com/privacy" target="_blank">Privacy Policy</a> and <a href="https://business.safety.google/adsdataprocessing/" target="_blank">Data Processing Terms</a>.</li>
+            <li><strong>Google Play / Apple App Store</strong> — For processing in-app purchases. Subject to their respective privacy policies.</li>
             <li><strong>SKAdNetwork Partners</strong> — Apple's SKAdNetwork is used for privacy-preserving ad attribution on iOS. This does not share personally identifiable information.</li>
             <li><strong>Legal Requirements</strong> — When required by law or to protect our rights.</li>
         </ul>
-        
+
         <h2>Your Rights and Choices</h2>
         <p>You have the right to:</p>
         <ul>
-            <li><strong>Control tracking (iOS)</strong> — When prompted by the App Tracking Transparency dialog, choose "Ask App Not to Track" to prevent IDFA access. You can also change this later in Settings → Privacy & Security → Tracking.</li>
+            <li><strong>Delete your account and all data</strong> — See instructions below.</li>
+            <li><strong>Control leaderboard visibility</strong> — Toggle your display name in Settings → Privacy.</li>
+            <li><strong>Control tracking (iOS)</strong> — When prompted by the App Tracking Transparency dialog, choose "Ask App Not to Track". You can also change this in Settings → Privacy &amp; Security → Tracking.</li>
             <li><strong>Manage ad preferences (Android)</strong> — Go to Settings → Google → Ads to reset your advertising ID or opt out of ad personalization.</li>
             <li><strong>Withdraw consent</strong> — If you provided consent via the GDPR/CCPA dialog, you can manage your preferences within the app or by reinstalling it.</li>
-            <li><strong>Request information</strong> — You can request information about data we collect by contacting us.</li>
-            <li><strong>Request deletion</strong> — You can request deletion of your data by contacting us.</li>
-            <li><strong>Uninstall the app</strong> — Uninstalling the app will remove all locally stored game data from your device.</li>
+            <li><strong>Request information</strong> — You can request information about data we hold by contacting us at <a href="mailto:aburakilkay@gmail.com">aburakilkay@gmail.com</a>.</li>
         </ul>
-        
+
+        <h2>Account and Data Deletion</h2>
+        <p>You can permanently delete your account and all associated data directly from the app:</p>
+        <div class="deletion-steps">
+            <ol>
+                <li>Open the <strong>Biased Coin Flip</strong> app</li>
+                <li>Tap the <strong>Settings</strong> icon</li>
+                <li>Scroll to the <strong>Account</strong> section</li>
+                <li>Tap <strong>"Remove Account"</strong></li>
+                <li>Confirm by tapping <strong>"Remove Account"</strong> in the dialog</li>
+            </ol>
+        </div>
+        <p>This will permanently delete the following data with no possibility of recovery:</p>
+        <ul>
+            <li>Firebase Authentication account</li>
+            <li>Game progress and statistics</li>
+            <li>In-app purchase transaction records</li>
+            <li>Leaderboard entries</li>
+            <li>All Firestore user data</li>
+        </ul>
+        <p>Alternatively, you may request deletion by contacting us at <a href="mailto:aburakilkay@gmail.com">aburakilkay@gmail.com</a>.</p>
+
         <h2>Data Retention</h2>
-        <p>Game data stored on your device persists until you uninstall the app or clear app data. Advertising-related data collected by Google AdMob is retained according to <a href="https://policies.google.com/technologies/retention" target="_blank">Google's data retention policies</a>.</p>
-        
+        <p>Account and game data stored on Firebase servers is retained until you delete your account. Advertising-related data collected by Google AdMob is retained according to <a href="https://policies.google.com/technologies/retention" target="_blank">Google's data retention policies</a>. Local preferences stored on your device are removed when you uninstall the app.</p>
+
         <h2>Data Security</h2>
-        <p>We implement appropriate security measures to protect your information. All game data is stored locally on your device. However, no method of transmission over the internet is 100% secure. While we strive to protect your data, we cannot guarantee absolute security.</p>
-        
+        <p>All data transmitted between the app and Firebase is encrypted in transit using HTTPS/TLS. Firebase Firestore enforces security rules that ensure users can only access their own data. However, no method of transmission over the internet is 100% secure, and we cannot guarantee absolute security.</p>
+
         <h2>Children's Privacy</h2>
         <p>Our app is not directed to children under 13 years of age (or the applicable age in your jurisdiction). We do not knowingly collect personal information from children. If you are a parent or guardian and believe your child has provided us with personal information, please contact us immediately and we will take steps to delete such information.</p>
-        
+
         <h2>International Users</h2>
-        <p>If you are using our app from outside the United States, please be aware that your information may be transferred to, stored, and processed in countries where Google operates its advertising infrastructure. By using the app, you consent to this transfer.</p>
-        
+        <p>If you are using our app from outside the United States, please be aware that your information may be transferred to, stored, and processed in countries where Google operates its infrastructure. By using the app, you consent to this transfer.</p>
+
         <h2>Changes to This Policy</h2>
-        <p>We may update this Privacy Policy from time to time. We will notify you of any changes by posting the new Privacy Policy on this page and updating the "Last updated" date. Continued use of the app after changes constitutes acceptance of the updated policy. You are advised to review this Privacy Policy periodically.</p>
-        
+        <p>We may update this Privacy Policy from time to time. We will notify you of any changes by posting the new Privacy Policy on this page and updating the "Last updated" date. Continued use of the app after changes constitutes acceptance of the updated policy.</p>
+
         <h2>Third-Party Links</h2>
         <p>Our app may contain links to third-party websites or services. We are not responsible for the privacy practices of these third parties. We encourage you to read their privacy policies.</p>
-        
+
         <div class="contact">
             <h2>Contact Us</h2>
             <p>If you have any questions about this Privacy Policy or wish to exercise your data rights, please contact us:</p>
             <p><strong>Email:</strong> <a href="mailto:aburakilkay@gmail.com">aburakilkay@gmail.com</a></p>
             <p><strong>App:</strong> Biased Coin Flip</p>
         </div>
-        
+
         <hr>
-        <p><small>This privacy policy was last updated on February 2026.</small></p>
+        <p><small>This privacy policy was last updated in May 2026.</small></p>
     </div>
 </body>
 </html>
